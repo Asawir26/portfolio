@@ -108,50 +108,17 @@ function LaptopIllustration() {
   );
 }
 
-function PixelArt({ type = "heart" }) {
-  const artMap = {
-    heart: [
+function PixelArt({ type = "cat" }) {
+  const art = type === "heart"
+    ? [
       "01100110",
       "11111111",
       "11111111",
       "01111110",
       "00111100",
       "00011000",
-    ],
-    flower: [
-      "00100",
-      "01010",
-      "10101",
-      "01110",
-      "00100",
-      "00100",
-    ],
-    star: [
-      "00100",
-      "10101",
-      "01110",
-      "11111",
-      "01110",
-      "10101",
-      "00100",
-    ],
-    bow: [
-      "11001",
-      "11111",
-      "01110",
-      "11111",
-      "11001",
-    ],
-    sparkle: [
-      "00100",
-      "10101",
-      "01110",
-      "11111",
-      "01110",
-      "10101",
-      "00100",
-    ],
-    cat: [
+    ]
+    : [
       "011000110",
       "111001111",
       "111111111",
@@ -159,33 +126,14 @@ function PixelArt({ type = "heart" }) {
       "111111111",
       "011101110",
       "001000100",
-    ],
-  };
-
-  const art = artMap[type] || artMap.heart;
-  const cols = art[0].length;
+    ];
 
   return (
-    <div className={`pixel-art pixel-${type}`} aria-hidden="true" style={{ gridTemplateColumns: `repeat(${cols}, 7px)` }}>
+    <div className={`pixel-art pixel-${type}`} aria-hidden="true">
       {art.flatMap((row, y) => [...row].map((cell, x) => (
         cell === "1" ? <i key={`${y}-${x}`} style={{ gridColumn: x + 1, gridRow: y + 1 }} /> : null
       )))}
     </div>
-  );
-}
-
-function BorderCat({ className = "" }) {
-  return (
-    <motion.div
-      className={`border-cat ${className}`}
-      animate={{ y: [0, -3, 0] }}
-      transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
-      aria-hidden="true"
-    >
-      <div className="border-cat-laptop"><LaptopIllustration /></div>
-      <div className="border-cat-body"><AnimeCat /></div>
-      <span className="border-cat-paw">♥</span>
-    </motion.div>
   );
 }
 
@@ -240,10 +188,33 @@ function Reveal({ children, className = "", delay = 0, y = 40, once = true }) {
   );
 }
 
+function DigitalFlower() {
+  return (
+    <motion.div
+      className="digital-flower"
+      initial={{ opacity: 0, scale: 0.72 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+      aria-hidden="true"
+    >
+      <div className="flower-glow" />
+      <div className="flower-bloom">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <span key={i} className={`flower-petal petal-${i + 1}`} />
+        ))}
+        <span className="flower-core" />
+      </div>
+      <div className="flower-scan" />
+      <span className="flower-label">DIGITAL BLOOM</span>
+    </motion.div>
+  );
+}
+
 function Hero() {
   return (
     <section className="hero page-section" id="top">
       <div className="hero-noise" />
+      <DigitalFlower />
       <div className="orbit orbit-one"><span /></div>
       <div className="orbit orbit-two"><span /></div>
       <div className="hero-star star-a">✦</div>
@@ -302,10 +273,6 @@ function Hero() {
       </div>
 
       <div className="hero-laptop"><LaptopIllustration /></div>
-      <div className="page-pixel hero-pixel-heart"><PixelArt type="heart" /></div>
-      <div className="page-pixel hero-pixel-star"><PixelArt type="star" /></div>
-      <div className="page-pixel hero-pixel-flower"><PixelArt type="flower" /></div>
-      <div className="page-pixel hero-pixel-sparkle"><PixelArt type="sparkle" /></div>
       <div className="scroll-cue"><span>SCROLL TO EXPLORE</span><i /></div>
     </section>
   );
@@ -349,10 +316,6 @@ function About() {
           <span>Currently learning, experimenting & building.</span>
         </div>
       </Reveal>
-      <div className="page-pixel about-pixel-heart"><PixelArt type="heart" /></div>
-      <div className="page-pixel about-pixel-flower"><PixelArt type="flower" /></div>
-      <div className="page-pixel about-pixel-bow"><PixelArt type="bow" /></div>
-      <BorderCat className="border-cat-about" />
     </section>
   );
 }
@@ -367,6 +330,9 @@ function Skills() {
       </Reveal>
 
       <Reveal className="skill-orbit" y={50} delay={0.08}>
+        <div className="toolkit-pixel toolkit-pixel-cat"><PixelArt type="cat" /></div>
+        <div className="toolkit-pixel toolkit-pixel-heart"><PixelArt type="heart" /></div>
+        <div className="toolkit-sticker">✦ tiny toolkit ✦</div>
         <div className="skill-center">
           <span>AS</span>
           <small>BUILD / LEARN / REPEAT</small>
@@ -384,9 +350,6 @@ function Skills() {
         </motion.div>
       </Reveal>
 
-      <div className="page-pixel skills-pixel-heart"><PixelArt type="heart" /></div>
-      <div className="page-pixel skills-pixel-star"><PixelArt type="star" /></div>
-      <div className="page-pixel skills-pixel-flower"><PixelArt type="flower" /></div>
       <div className="skill-groups">
         {skillGroups.map(({ label, items, icon: Icon }, i) => (
           <Reveal key={label} className="skill-group" delay={i * 0.05} y={25}>
@@ -451,9 +414,6 @@ function Work() {
       <div className="projects">
         {projects.map((p, i) => <ProjectCard project={p} index={i} key={p.title} />)}
       </div>
-      <div className="page-pixel work-pixel-heart"><PixelArt type="heart" /></div>
-      <div className="page-pixel work-pixel-star"><PixelArt type="star" /></div>
-      <div className="page-pixel work-pixel-bow"><PixelArt type="bow" /></div>
     </section>
   );
 }
@@ -482,9 +442,6 @@ function Contact() {
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.9 }}
       ><TinyRobot /><AnimeCat /></motion.div>
-      <div className="page-pixel contact-pixel-heart"><PixelArt type="heart" /></div>
-      <div className="page-pixel contact-pixel-flower"><PixelArt type="flower" /></div>
-      <div className="page-pixel contact-pixel-sparkle"><PixelArt type="sparkle" /></div>
       <Reveal y={25}><SectionLabel number="05" light>LET'S CONNECT</SectionLabel></Reveal>
       <div className="contact-grid">
         <Reveal y={45}>
