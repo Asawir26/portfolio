@@ -25,7 +25,7 @@ const projects = [
     description:
       "A RAG-powered website assistant that crawls real site content, retrieves relevant knowledge with hybrid search and generates grounded answers with citations.",
     stack: ["Next.js", "FastAPI", "Gemini", "Supabase", "pgvector", "Vercel"],
-    link: "https://ai-chatbot-lyart-mu.vercel.app/",
+    link: null,
     tone: "cream",
     icon: BrainCircuit,
   },
@@ -47,7 +47,7 @@ const projects = [
     description:
       "A destination guide system for searching hotels, discovering nearby attractions, reading reviews and managing favourite travel destinations.",
     stack: ["Flask", "Python", "MySQL", "Jinja2", "HTML", "CSS"],
-    link: "https://github.com/Anas348/Travel-Mate",
+    link: "https://travel-mate-xi-rose.vercel.app/",
     tone: "cream",
     icon: Globe2,
   },
