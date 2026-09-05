@@ -14,7 +14,7 @@ const projects = [
     description:
       "A collection of four hands-on AWS projects covering static hosting, compute, databases and serverless architecture.",
     stack: ["S3", "EC2", "RDS", "Lambda", "Linux", "IAM"],
-    link: "https://github.com/Asawir26/DecodeLabs-Internship",
+    link: null,
     tone: "navy",
     icon: Cloud,
   },
@@ -25,7 +25,7 @@ const projects = [
     description:
       "A RAG-powered website assistant that crawls real site content, retrieves relevant knowledge with hybrid search and generates grounded answers with citations.",
     stack: ["Next.js", "FastAPI", "Gemini", "Supabase", "pgvector", "Vercel"],
-    link: null,
+    link: "https://ai-chatbot-lyart-mu.vercel.app/",
     tone: "cream",
     icon: BrainCircuit,
   },
