@@ -1,16 +1,17 @@
-# Asawir Asif — Portfolio
+# Asawir — Immersive 3D Portfolio
 
-A Vercel-ready React portfolio with an anime-inspired, editorial visual direction.
+A personal, abstract 3D portfolio built with React, Three.js / React Three Fiber, Drei and Framer Motion.
 
-## Stack
+## Direction
+- Abstract WebGL scene that reacts to scroll and pointer movement
+- Editorial, scroll-driven chapters inspired by modern digital studio storytelling
+- Personal black/navy + cyan/violet visual language
+- Transparent custom cursor
+- AI Engineer Intern experience at OctaSynx
+- Editorial skill constellation instead of boxed skill cards
+- Selected projects and contact section
 
-- React + Vite
-- Framer Motion
-- Lucide React
-- CSS
-- Google Fonts: Cormorant Garamond + DM Sans
-
-## Run locally
+## Run
 
 ```bash
 npm install
@@ -22,19 +23,3 @@ npm run dev
 ```bash
 npm run build
 ```
-
-## Deploy to Vercel
-
-Push this repository to GitHub and import it into Vercel. Vercel will detect Vite automatically.
-
-## Contact form
-
-The contact form intentionally has no backend. It opens the visitor's default email client with the message pre-filled and sends it to:
-
-asawirhy123@gmail.com
-
-## Project links
-
-- AWS: https://github.com/Asawir26/DecodeLabs-Internship
-- OctaSynx AI Chatbot: https://ai-chatbot-lyart-mu.vercel.app/
-- Travel Mate: https://github.com/Anas348/Travel-Mate
